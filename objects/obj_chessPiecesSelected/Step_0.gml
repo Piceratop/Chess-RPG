@@ -15,14 +15,11 @@ if (mouse_check_button_released(mb_left) and
 ((floor(mouse_x/global.squareWidth) != initX or 
 floor(mouse_y/global.squareWidth) != initY))){
 	// Move Piece
-	if (0 <= mouse_x and mouse_x < 1704 and 0 <= mouse_y and mouse_y < 1704){
+	if ((0 <= mouse_x and mouse_x < 1704 and 0 <= mouse_y and mouse_y < 1704) and position_meeting(mouse_x, mouse_y, obj_highlight)){
 		if (position_meeting(mouse_x, mouse_y, obj_chessPieces)){
-			attempt = instance_nearest(mouse_x, mouse_y, obj_chessPieces)
-			if (attempt.sprite_index != self.sprite_index){
-				instance_destroy(attempt)
-				obj_chessPiecesSelected.x = floor(mouse_x/global.squareWidth) * global.squareWidth
-				obj_chessPiecesSelected.y = floor(mouse_y/global.squareWidth) * global.squareWidth
-			}
+			instance_destroy(instance_nearest(mouse_x, mouse_y, obj_chessPieces))
+			obj_chessPiecesSelected.x = floor(mouse_x/global.squareWidth) * global.squareWidth
+			obj_chessPiecesSelected.y = floor(mouse_y/global.squareWidth) * global.squareWidth
 		} else {
 			obj_chessPiecesSelected.x = floor(mouse_x/global.squareWidth) * global.squareWidth
 			obj_chessPiecesSelected.y = floor(mouse_y/global.squareWidth) * global.squareWidth
