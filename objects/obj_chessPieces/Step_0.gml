@@ -11,6 +11,11 @@ if (mouse_check_button_pressed(mb_left) and position_meeting(mouse_x, mouse_y, s
 		selected = instance_create_layer(floor(x/global.squareWidth)*global.squareWidth, floor(y/global.squareWidth)*global.squareWidth, "Selected", obj_chessPiecesSelected)
 		selected.sprite_index = self.sprite_index
 		selected.image_index = self.image_index
+		if (sprite_index == spr_whiteChessPieces){
+			selected.pieceId = self.image_index + 1	
+		} else {
+			selected.pieceId = - self.image_index - 1
+		}
 		instance_destroy()
 	}
 }
