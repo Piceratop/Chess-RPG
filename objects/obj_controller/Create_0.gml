@@ -1,7 +1,5 @@
 //Initialize variables
 global.squareWidth = 213
-xSelected = -1
-ySelected = -1
 //Create board
 global.board = ds_grid_create(8, 8)
 for (i = 0; i < 8; i++){
@@ -10,7 +8,9 @@ for (i = 0; i < 8; i++){
 	}
 }
 //Temporary code
-create_piece(3,0,-2)
-create_piece(4,0,-1)
-create_piece(3,7,2)
-create_piece(4,7,1)
+create_piece(1, 0, -4)
+create_piece(6, 0, -4)
+create_piece(4, 0, -1)
+create_piece(1, 7, 4)
+create_piece(6, 7, 4)
+create_piece(4, 7, 1)
