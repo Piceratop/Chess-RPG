@@ -7,4 +7,5 @@ for(var i = 0; i < 8; i++){
 draw_set_color(c_green)
 if (instance_exists(obj_chessPiecesSelected)){
 	draw_text_transformed(100, 100, obj_chessPiecesSelected.pieceId, 10, 10, 0)
+	draw_text_transformed(100, 200, obj_chessPiecesSelected.moved, 10, 10, 0)
 }

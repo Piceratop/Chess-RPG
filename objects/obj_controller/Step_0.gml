@@ -11,7 +11,7 @@ if (instance_exists(obj_chessPiecesSelected)){
 			highlight_movement(xSelected - 1, ySelected + 1)
 			highlight_movement(xSelected + 1, ySelected - 1)
 			highlight_movement(xSelected - 1, ySelected - 1)
-		break
+			break
 		case 3:
 			highlight_movement(xSelected + 2, ySelected + 1)
 			highlight_movement(xSelected - 2, ySelected + 1)
@@ -21,8 +21,9 @@ if (instance_exists(obj_chessPiecesSelected)){
 			highlight_movement(xSelected - 1, ySelected + 2)
 			highlight_movement(xSelected + 1, ySelected - 2)
 			highlight_movement(xSelected - 1, ySelected - 2)
+			break
 		default:
-		break
+			break
 	}
 } else {
 	xSelected = -1
