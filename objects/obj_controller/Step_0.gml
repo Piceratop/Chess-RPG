@@ -40,6 +40,13 @@ if (instance_exists(obj_chessPiecesSelected)){
 			all_line_highlight(xSelected, ySelected, 1, 0)
 			all_line_highlight(xSelected, ySelected, 0, 1)
 			break
+		//Pawn
+		case 6:
+			if (!obj_chessPiecesSelected.moved){
+				limited_line_highlight_move_only(xSelected, ySelected, 0, - sign(obj_chessPiecesSelected.pieceId), 2)
+			} else {
+				highlight_move_only(xSelected, ySelected - sign(obj_chessPiecesSelected.pieceId))
+			}
 		default:
 			break
 	}

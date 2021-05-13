@@ -24,3 +24,7 @@ create_piece(2, 7, 3)
 create_piece(5, 7, 3)
 create_piece(3, 7, 2)
 create_piece(4, 7, 1)
+for (var i = 0; i < 8; i++){
+	create_piece(i, 1, -6)
+	create_piece(i, 6, 6)
+}
