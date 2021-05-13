@@ -11,7 +11,7 @@ if (mouse_check_button(mb_left) and 0 <= mouse_x and mouse_x < 1704 and 0 <= mou
 	y = initY * global.squareWidth
 }
 //Move piece
-if (mouse_check_button_released(mb_left) and
+if (mouse_check_button_released(mb_left) and 
 ((floor(mouse_x/global.squareWidth) != initX or 
 floor(mouse_y/global.squareWidth) != initY))){
 	// Move Piece
