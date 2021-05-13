@@ -1,6 +1,7 @@
 if (instance_exists(obj_chessPiecesSelected)){
 	xSelected = obj_chessPiecesSelected.initX
 	ySelected = obj_chessPiecesSelected.initY
+	//Check piece to move
 	switch (abs(obj_chessPiecesSelected.pieceId)){
 		//King
 		case 1:
@@ -13,18 +14,15 @@ if (instance_exists(obj_chessPiecesSelected)){
 			highlight_movement(xSelected + 1, ySelected - 1)
 			highlight_movement(xSelected - 1, ySelected - 1)
 			break
+		//Queen
+		case 2:
+			all_line_highlight(xSelected, ySelected, 1, 1)
+			all_line_highlight(xSelected, ySelected, 1, 0)
+			all_line_highlight(xSelected, ySelected, 0, 1)
+			break
 		//Bishop
 		case 3:
-			{
-				var i = xSelected + 1
-				var j = ySelected + 1
-				while (i < 8 and j < 8){
-					highlight_movement(i, j)
-					i += 1
-					j += 1
-				}
-				diag_highlight()
-			}
+			all_line_highlight(xSelected, ySelected, 1, 1)
 			break
 		//Knight
 		case 4:
@@ -39,30 +37,8 @@ if (instance_exists(obj_chessPiecesSelected)){
 			break
 		//Rook
 		case 5:
-			for (var i = xSelected + 1; i < 8; i++){
-				highlight_movement(i, ySelected)
-				if (global.board[i, ySelected] != 0){
-					break	
-				}
-			}
-			for (var i = xSelected - 1; i >= 0; i--){
-				highlight_movement(i, ySelected)
-				if (global.board[i, ySelected] != 0){
-					break
-				}
-			}
-			for (var i = ySelected + 1; i < 8; i++){
-				highlight_movement(xSelected, i)
-				if (global.board[xSelected, i] != 0){
-					break
-				}
-			}
-			for (var i = ySelected - 1; i >= 0; i--){
-				highlight_movement(xSelected, i)	
-				if (global.board[xSelected, i] != 0){
-					break
-				}
-			}
+			all_line_highlight(xSelected, ySelected, 1, 0)
+			all_line_highlight(xSelected, ySelected, 0, 1)
 			break
 		default:
 			break
