@@ -47,6 +47,8 @@ if (instance_exists(obj_chessPiecesSelected)){
 			} else {
 				highlight_move_only(xSelected, ySelected - sign(obj_chessPiecesSelected.pieceId))
 			}
+			highlight_capture_only(xSelected + 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
+			highlight_capture_only(xSelected - 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
 		default:
 			break
 	}

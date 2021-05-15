@@ -6,7 +6,8 @@
     "children": [
         "68b8fcaa-8899-4db0-94d8-7e11f50384a6",
         "75fa5f3a-624a-4f8f-a0a5-f82ea93c3b21",
-        "20388d38-0da6-4853-88ac-ba7b9c3b77ea"
+        "20388d38-0da6-4853-88ac-ba7b9c3b77ea",
+        "70183db4-c094-40ad-b108-e37dc1c03517"
     ],
     "filterType": "GMScript",
     "folderName": "Highlight Move",

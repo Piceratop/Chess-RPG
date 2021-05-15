@@ -7,7 +7,7 @@ for (i = 0; i < 8; i++){
 		global.board[i,j] = 0	
 	}
 }
-//Temporary code
+//Create chess board
 create_piece(0, 0, -5)
 create_piece(7, 0, -5)
 create_piece(1, 0, -4)
@@ -28,3 +28,4 @@ for (var i = 0; i < 8; i++){
 	create_piece(i, 1, -6)
 	create_piece(i, 6, 6)
 }
+//Temporary code
