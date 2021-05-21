@@ -1,9 +1,9 @@
 // Change piece's position
-if (x >= 0 and y >= 0){
+if (x >= 0 and y >= 0) {
 	global.board[initX, initY] = 0
 }
 // Follow mouse
-if (mouse_check_button(mb_left) and 0 <= mouse_x and mouse_x < 1704 and 0 <= mouse_y and mouse_y < 1704){
+if (mouse_check_button(mb_left) and 0 <= mouse_x and mouse_x < 1704 and 0 <= mouse_y and mouse_y < 1704) {
 	x = mouse_x - global.squareWidth / 2
 	y = mouse_y - global.squareWidth / 2
 } else {
@@ -13,15 +13,19 @@ if (mouse_check_button(mb_left) and 0 <= mouse_x and mouse_x < 1704 and 0 <= mou
 //Move piece
 if (mouse_check_button_released(mb_left) and 
 ((floor(mouse_x/global.squareWidth) != initX or 
-floor(mouse_y/global.squareWidth) != initY))){
+floor(mouse_y/global.squareWidth) != initY))) {
 	// Move Piece
-	if ((0 <= mouse_x and mouse_x < 1704 and 0 <= mouse_y and mouse_y < 1704) and instance_position(mouse_x, mouse_y, obj_highlight)){
+	if ((0 <= mouse_x and mouse_x < 1704 and 0 <= mouse_y and mouse_y < 1704) 
+	and instance_position(mouse_x, mouse_y, obj_highlight)) {
 		obj_chessPiecesSelected.x = floor(mouse_x / global.squareWidth) * global.squareWidth
 		obj_chessPiecesSelected.y = floor(mouse_y / global.squareWidth) * global.squareWidth
-		if (instance_position(x + 1, y + 1, obj_chessPieces)){
+		if (instance_position(x + 1, y + 1, obj_chessPieces)) {
 			instance_destroy(instance_nearest(x, y, obj_chessPieces))
 		}
-		move_number += 1
+		with (obj_chessPieces) {
+			move_number = ceil(move_number)	
+		}
+		move_number = ceil(move_number) + 0.5
 	} else {
 		obj_chessPiecesSelected.x = obj_chessPiecesSelected.initX * global.squareWidth
 		obj_chessPiecesSelected.y = obj_chessPiecesSelected.initY * global.squareWidth
@@ -30,5 +34,6 @@ floor(mouse_y/global.squareWidth) != initY))){
 	released.sprite_index = obj_chessPiecesSelected.sprite_index
 	released.image_index = obj_chessPiecesSelected.image_index
 	released.move_number = move_number
+	released.pieceId = pieceId
 	instance_destroy(obj_chessPiecesSelected)
-} 	
+}

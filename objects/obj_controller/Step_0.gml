@@ -1,8 +1,8 @@
-if (instance_exists(obj_chessPiecesSelected)){
+if (instance_exists(obj_chessPiecesSelected)) {
 	xSelected = obj_chessPiecesSelected.initX
 	ySelected = obj_chessPiecesSelected.initY
 	//Check piece to move
-	switch (abs(obj_chessPiecesSelected.pieceId)){
+	switch (abs(obj_chessPiecesSelected.pieceId)) {
 		//King
 		case 1:
 			highlight_movement(xSelected + 1, ySelected)
@@ -42,13 +42,28 @@ if (instance_exists(obj_chessPiecesSelected)){
 			break
 		//Pawn
 		case 6:
-			if (obj_chessPiecesSelected.move_number == 0){
+			//Move
+			if (obj_chessPiecesSelected.move_number == 0) {
 				limited_line_highlight_move_only(xSelected, ySelected, 0, - sign(obj_chessPiecesSelected.pieceId), 2)
 			} else {
 				highlight_move_only(xSelected, ySelected - sign(obj_chessPiecesSelected.pieceId))
 			}
+			//Capture
 			highlight_capture_only(xSelected + 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
 			highlight_capture_only(xSelected - 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
+			//En Passant
+			en_passant = instance_position((xSelected + 1) * global.squareWidth + 1, ySelected * global.squareWidth - sign(obj_chessPiecesSelected.pieceId), obj_chessPieces)
+			if (en_passant != noone) {
+				if (abs(en_passant.pieceId) == 6 and en_passant.move_number == 0.5) {
+					highlight_move_only(xSelected + 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
+				}
+			}
+			en_passant = instance_position((xSelected - 1) * global.squareWidth + 1, ySelected * global.squareWidth - sign(obj_chessPiecesSelected.pieceId), obj_chessPieces)
+			if (en_passant != noone) {
+				if (abs(en_passant.pieceId) == 6 and en_passant.move_number == 0.5) {
+					highlight_move_only(xSelected - 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
+				}
+			}
 		default:
 			break
 	}
