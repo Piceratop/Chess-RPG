@@ -21,7 +21,7 @@ floor(mouse_y/global.squareWidth) != initY))){
 		if (instance_position(x + 1, y + 1, obj_chessPieces)){
 			instance_destroy(instance_nearest(x, y, obj_chessPieces))
 		}
-		moved = true
+		move_number += 1
 	} else {
 		obj_chessPiecesSelected.x = obj_chessPiecesSelected.initX * global.squareWidth
 		obj_chessPiecesSelected.y = obj_chessPiecesSelected.initY * global.squareWidth
@@ -29,6 +29,6 @@ floor(mouse_y/global.squareWidth) != initY))){
 	released = instance_create_layer(obj_chessPiecesSelected.x, obj_chessPiecesSelected.y, "Pieces", obj_chessPieces)
 	released.sprite_index = obj_chessPiecesSelected.sprite_index
 	released.image_index = obj_chessPiecesSelected.image_index
-	released.moved = moved
+	released.move_number = move_number
 	instance_destroy(obj_chessPiecesSelected)
 } 	

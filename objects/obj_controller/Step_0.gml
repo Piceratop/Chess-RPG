@@ -42,7 +42,7 @@ if (instance_exists(obj_chessPiecesSelected)){
 			break
 		//Pawn
 		case 6:
-			if (!obj_chessPiecesSelected.moved){
+			if (obj_chessPiecesSelected.move_number == 0){
 				limited_line_highlight_move_only(xSelected, ySelected, 0, - sign(obj_chessPiecesSelected.pieceId), 2)
 			} else {
 				highlight_move_only(xSelected, ySelected - sign(obj_chessPiecesSelected.pieceId))

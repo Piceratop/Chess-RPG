@@ -12,6 +12,6 @@ switch (pieceType > 0){
 		piece.image_index = abs(pieceType) - 1
 		break
 }
-piece.moved = false
+piece.move_number = 0
 piece.pieceId = pieceType
 global.board[xx, yy] = pieceType

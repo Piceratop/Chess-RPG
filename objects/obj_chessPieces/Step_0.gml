@@ -4,7 +4,7 @@ if (mouse_check_button_pressed(mb_left) and position_meeting(mouse_x, mouse_y, s
 		selected = instance_create_layer(floor(x/global.squareWidth)*global.squareWidth, floor(y/global.squareWidth)*global.squareWidth, "Selected", obj_chessPiecesSelected)
 		selected.sprite_index = sprite_index
 		selected.image_index = image_index
-		selected.moved = moved
+		selected.move_number = move_number
 		switch (sprite_index){
 			case spr_whiteChessPieces:
 				selected.pieceId = image_index + 1
