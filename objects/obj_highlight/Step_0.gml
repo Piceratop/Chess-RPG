@@ -1,1 +1,0 @@
-image_alpha -= image_alpha / 10

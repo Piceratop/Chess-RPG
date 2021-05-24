@@ -52,16 +52,16 @@ if (instance_exists(obj_chessPiecesSelected)) {
 			highlight_capture_only(xSelected + 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
 			highlight_capture_only(xSelected - 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
 			//En Passant
-			en_passant = instance_position((xSelected + 1) * global.squareWidth + 1, ySelected * global.squareWidth - sign(obj_chessPiecesSelected.pieceId), obj_chessPieces)
+			en_passant = instance_position((xSelected + 1) * global.squareWidth + 1, ySelected * global.squareWidth + 1, obj_chessPieces)
 			if (en_passant != noone) {
 				if (abs(en_passant.pieceId) == 6 and en_passant.move_number == 0.5) {
-					highlight_move_only(xSelected + 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
+					highlight_en_passant(xSelected + 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
 				}
 			}
-			en_passant = instance_position((xSelected - 1) * global.squareWidth + 1, ySelected * global.squareWidth - sign(obj_chessPiecesSelected.pieceId), obj_chessPieces)
+			en_passant = instance_position((xSelected - 1) * global.squareWidth + 1, ySelected * global.squareWidth + 1, obj_chessPieces)
 			if (en_passant != noone) {
 				if (abs(en_passant.pieceId) == 6 and en_passant.move_number == 0.5) {
-					highlight_move_only(xSelected - 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
+					highlight_en_passant(xSelected - 1, ySelected - sign(obj_chessPiecesSelected.pieceId))
 				}
 			}
 		default:
@@ -70,5 +70,6 @@ if (instance_exists(obj_chessPiecesSelected)) {
 } else {
 	xSelected = -1
 	ySelected = -1
-	instance_destroy(obj_highlight)	
+	instance_destroy(obj_highlight)
+	instance_destroy(obj_selected)
 }
