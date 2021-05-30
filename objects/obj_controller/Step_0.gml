@@ -2,19 +2,12 @@ distance = (xEnd - xStart)*(xEnd - xStart) + (yEnd - yStart)*(yEnd - yStart)
 if (instance_exists(obj_chessPiecesSelected)) {
 	xSelected = obj_chessPiecesSelected.initX
 	ySelected = obj_chessPiecesSelected.initY
+	highlight_move_range(obj_chessPiecesSelected.move_range)
+	highlight_capture_range(obj_chessPiecesSelected.capture_range)
 	//Check piece to move
 	switch (abs(obj_chessPiecesSelected.pieceId)) {
-		//King
+		//Castle
 		case 1:
-			highlight_movement(xSelected + 1, ySelected)
-			highlight_movement(xSelected - 1, ySelected)
-			highlight_movement(xSelected, ySelected + 1)
-			highlight_movement(xSelected, ySelected - 1)
-			highlight_movement(xSelected + 1, ySelected + 1)
-			highlight_movement(xSelected - 1, ySelected + 1)
-			highlight_movement(xSelected + 1, ySelected - 1)
-			highlight_movement(xSelected - 1, ySelected - 1)
-			//Castle
 			break
 		//Queen
 		case 2:
@@ -25,22 +18,6 @@ if (instance_exists(obj_chessPiecesSelected)) {
 		//Bishop
 		case 3:
 			all_line_highlight(xSelected, ySelected, 1, 1)
-			break
-		//Knight
-		case 4:
-			highlight_movement(xSelected + 2, ySelected + 1)
-			highlight_movement(xSelected - 2, ySelected + 1)
-			highlight_movement(xSelected + 2, ySelected - 1)
-			highlight_movement(xSelected - 2, ySelected - 1)
-			highlight_movement(xSelected + 1, ySelected + 2)
-			highlight_movement(xSelected - 1, ySelected + 2)
-			highlight_movement(xSelected + 1, ySelected - 2)
-			highlight_movement(xSelected - 1, ySelected - 2)
-			break
-		//Rook
-		case 5:
-			all_line_highlight(xSelected, ySelected, 1, 0)
-			all_line_highlight(xSelected, ySelected, 0, 1)
 			break
 		//Pawn
 		case 6:

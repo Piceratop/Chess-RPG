@@ -423,11 +423,27 @@
             }
         },
         {
+            "Key": "d10786bd-373d-4efd-9c62-69d93bc59eda",
+            "Value": {
+                "id": "22c1a551-7512-4ba5-979a-501c3870fe54",
+                "resourcePath": "scripts\\highlight_move_range\\highlight_move_range.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d47b432c-c73d-4d02-980b-ef7587aab72b",
             "Value": {
                 "id": "b63d25da-c534-4c9d-bf7f-75074cd6a63c",
                 "resourcePath": "objects\\obj_highlight\\obj_highlight.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "de7c7862-a567-4950-b39b-c0f743a1b520",
+            "Value": {
+                "id": "f984dfdc-5478-4be7-b5ae-3345aea33d63",
+                "resourcePath": "scripts\\highlight_capture_range\\highlight_capture_range.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -460,6 +476,14 @@
                 "id": "f7e3c837-fcde-4211-94cb-d210c38ebd80",
                 "resourcePath": "options\\mac\\options_mac.yy",
                 "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "f850208c-1429-497a-a462-647323a61ab8",
+            "Value": {
+                "id": "c59cbf17-5f8f-49df-89b1-f06ea4831921",
+                "resourcePath": "views\\f850208c-1429-497a-a462-647323a61ab8.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -497,7 +521,9 @@
         "fdd4905b-13d6-47e4-afce-c6fc50c3640f",
         "07486c92-5d5f-4dc6-97bf-ea7d756d4be8",
         "a4bee3e0-0880-46f3-a551-826e2358f135",
-        "bda23d83-9e04-4003-a8db-54b22e3e863d"
+        "bda23d83-9e04-4003-a8db-54b22e3e863d",
+        "d10786bd-373d-4efd-9c62-69d93bc59eda",
+        "de7c7862-a567-4950-b39b-c0f743a1b520"
     ],
     "tutorial": ""
 }
