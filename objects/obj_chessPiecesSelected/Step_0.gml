@@ -35,6 +35,10 @@ if (mouse_check_button_released(mb_left) and (instance_position(mouse_x, mouse_y
 		released.image_index = obj_chessPiecesSelected.image_index
 		released.move_number = move_number
 		released.pieceId = pieceId
+		obj_controller.xStart = initX
+		obj_controller.yStart = initY
+		obj_controller.xEnd = floor(released.x / global.squareWidth)
+		obj_controller.yEnd = floor(released.y / global.squareWidth)
 		instance_destroy()
 	}
 }

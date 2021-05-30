@@ -1,6 +1,10 @@
 //Initialize variables
 xSelected = -1
 ySelected = -1
+xStart = -1
+yStart = -1
+xEnd = -1
+yEnd = -1
 global.squareWidth = 213
 //Create board
 global.board = ds_grid_create(8, 8)
