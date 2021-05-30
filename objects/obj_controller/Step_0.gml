@@ -14,6 +14,7 @@ if (instance_exists(obj_chessPiecesSelected)) {
 			highlight_movement(xSelected - 1, ySelected + 1)
 			highlight_movement(xSelected + 1, ySelected - 1)
 			highlight_movement(xSelected - 1, ySelected - 1)
+			//Castle
 			break
 		//Queen
 		case 2:
@@ -69,8 +70,6 @@ if (instance_exists(obj_chessPiecesSelected)) {
 			break
 	}
 } else {
-	xSelected = -1
-	ySelected = -1
 	instance_destroy(obj_highlight)
 	instance_destroy(obj_selected)
 }

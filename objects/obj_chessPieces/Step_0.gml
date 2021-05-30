@@ -1,5 +1,5 @@
 //Move piece
-if (mouse_check_button_pressed(mb_left) and position_meeting(mouse_x, mouse_y, self)){
+if (mouse_check_button_pressed(mb_left) and position_meeting(mouse_x, mouse_y, self) and obj_controller.turn * pieceId > 0){
 	if (!instance_exists(obj_chessPiecesSelected)){
 		selected = instance_create_layer(floor(x/global.squareWidth)*global.squareWidth, floor(y/global.squareWidth)*global.squareWidth, "Selected", obj_chessPiecesSelected)
 		selected.sprite_index = sprite_index

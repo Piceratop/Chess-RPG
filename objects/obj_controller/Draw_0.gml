@@ -1,6 +1,0 @@
-draw_set_color(c_red)
-draw_text_transformed(0, 0, xStart, 10, 10, 0)
-draw_text_transformed(global.squareWidth, 0, yStart, 10, 10, 0)
-draw_text_transformed(0, global.squareWidth, xEnd, 10, 10, 0)
-draw_text_transformed(global.squareWidth, global.squareWidth, yEnd, 10, 10, 0)
-draw_text_transformed(2 * global.squareWidth, 0, distance, 10, 10, 0)
