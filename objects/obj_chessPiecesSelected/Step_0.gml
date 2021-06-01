@@ -23,6 +23,10 @@ if (mouse_check_button_released(mb_left)) {
 				move_number = ceil(move_number)
 			}
 			move_number = ceil(move_number) + 0.5
+			obj_controller.xStart = initX
+			obj_controller.yStart = initY
+			obj_controller.xEnd = floor(x / global.squareWidth)
+			obj_controller.yEnd = floor(y / global.squareWidth)
 		} else if (instance_position(mouse_x, mouse_y, obj_selected)) {
 			x = initX * global.squareWidth
 			y = initY * global.squareWidth
@@ -34,10 +38,6 @@ if (mouse_check_button_released(mb_left)) {
 			released.image_index = image_index
 			released.move_number = move_number
 			released.pieceId = pieceId
-			obj_controller.xStart = initX
-			obj_controller.yStart = initY
-			obj_controller.xEnd = floor(released.x / global.squareWidth)
-			obj_controller.yEnd = floor(released.y / global.squareWidth)
 			if (x != initX * global.squareWidth or y != initY * global.squareWidth){
 				obj_controller.turn = obj_controller.turn * (-1)	
 			}

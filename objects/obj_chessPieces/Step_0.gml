@@ -248,6 +248,20 @@ if (range_count == 0) {
 				}
 			}
 			break
+		// Pawn
+		case 6:
+			{
+				var i = 1
+				if (move_number == 0) {
+					i = 2	
+				}
+				while (i > 0) {
+					move_range[array_length_1d(move_range)] = [initX, initY - i * sign(pieceId)]
+					i -= 1
+				}
+				capture_range[array_length_1d(capture_range)] = [initX + 1, initY - sign(pieceId)]
+				capture_range[array_length_1d(capture_range)] = [initX - 1, initY - sign(pieceId)]
+			}
 		default:
 			break
 	}
