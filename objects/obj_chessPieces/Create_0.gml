@@ -1,6 +1,7 @@
 //Initialize variables
-initX = round(x/global.squareWidth)
-initY = round(y/global.squareWidth)
+init_x = round(x/global.square_width)
+init_y = round(y/global.square_width)
+check = 0
 range_count = 0
 move_and_capture_range = []
 move_range = []

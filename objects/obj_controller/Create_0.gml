@@ -1,12 +1,13 @@
 //Initialize variables
-xSelected = -1
-ySelected = -1
-xStart = -1
-yStart = -1
-xEnd = -1
-yEnd = -1
+x_selected = -1
+y_selected = -1
+x_start = -1
+y_start = -1
+x_end = -1
+y_end = -1
 turn = 1
-global.squareWidth = 213
+total_check = 0
+global.square_width = 213
 //Create board
 global.board = ds_grid_create(8, 8)
 for (i = 0; i < 8; i++){

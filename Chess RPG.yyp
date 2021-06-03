@@ -447,6 +447,14 @@
             }
         },
         {
+            "Key": "df5159f7-f026-43b7-94f9-93f167f3929e",
+            "Value": {
+                "id": "9c186820-f07e-414b-8cbf-f89035cd8eea",
+                "resourcePath": "scripts\\half_line_check\\half_line_check.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e2629e43-7c0b-4916-afb8-e9076fb9fd45",
             "Value": {
                 "id": "89c364f5-0e84-42d4-b841-06efeecc108a",
@@ -523,7 +531,8 @@
         "a4bee3e0-0880-46f3-a551-826e2358f135",
         "bda23d83-9e04-4003-a8db-54b22e3e863d",
         "d10786bd-373d-4efd-9c62-69d93bc59eda",
-        "de7c7862-a567-4950-b39b-c0f743a1b520"
+        "de7c7862-a567-4950-b39b-c0f743a1b520",
+        "df5159f7-f026-43b7-94f9-93f167f3929e"
     ],
     "tutorial": ""
 }

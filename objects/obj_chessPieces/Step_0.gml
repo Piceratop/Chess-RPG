@@ -4,14 +4,14 @@ if (range_count == 0) {
 		// King
 		case 1:
 			move_and_capture_range = [
-			[initX + 1, initY],
-			[initX - 1, initY],
-			[initX, initY + 1],
-			[initX, initY - 1],
-			[initX + 1, initY + 1],
-			[initX + 1, initY - 1],
-			[initX - 1, initY + 1],
-			[initX - 1, initY - 1]
+			[init_x + 1, init_y],
+			[init_x - 1, init_y],
+			[init_x, init_y + 1],
+			[init_x, init_y - 1],
+			[init_x + 1, init_y + 1],
+			[init_x + 1, init_y - 1],
+			[init_x - 1, init_y + 1],
+			[init_x - 1, init_y - 1]
 			]
 			move_range = move_and_capture_range
 			capture_range = move_and_capture_range
@@ -19,8 +19,8 @@ if (range_count == 0) {
 		// Queen
 		case 2:
 			{
-				var i = initX + 1
-				var j = initY + 1
+				var i = init_x + 1
+				var j = init_y + 1
 				while (i < 8 and j < 8) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -35,8 +35,8 @@ if (range_count == 0) {
 				}
 			}
 			{
-				var i = initX + 1
-				var j = initY - 1
+				var i = init_x + 1
+				var j = init_y - 1
 				while (i < 8 and j >= 0) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -51,8 +51,8 @@ if (range_count == 0) {
 				}
 			}
 			{
-				var i = initX - 1
-				var j = initY + 1
+				var i = init_x - 1
+				var j = init_y + 1
 				while (i >= 0 and j < 8) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -67,8 +67,8 @@ if (range_count == 0) {
 				}
 			}
 			{
-				var i = initX - 1
-				var j = initY - 1
+				var i = init_x - 1
+				var j = init_y - 1
 				while (i >= 0 and j >= 0) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -82,41 +82,41 @@ if (range_count == 0) {
 					}
 				}
 			}
-			for (var i = initX + 1; i < 8; i++) {
-				if (global.board[i, initY] == 0) {
-					move_range[array_length_1d(move_range)] = [i, initY]
-				} else if (global.board[i, initY] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, initY]
+			for (var i = init_x + 1; i < 8; i++) {
+				if (global.board[i, init_y] == 0) {
+					move_range[array_length_1d(move_range)] = [i, init_y]
+				} else if (global.board[i, init_y] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [i, init_y]
 					break
 				} else {
 					break	
 				}
 			}
-			for (var i = initX - 1; i >= 0; i--) {
-				if (global.board[i, initY] == 0) {
-					move_range[array_length_1d(move_range)] = [i, initY]
-				} else if (global.board[i, initY] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, initY]
+			for (var i = init_x - 1; i >= 0; i--) {
+				if (global.board[i, init_y] == 0) {
+					move_range[array_length_1d(move_range)] = [i, init_y]
+				} else if (global.board[i, init_y] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [i, init_y]
 					break
 				} else {
 					break	
 				}
 			}
-			for (var i = initY + 1; i < 8; i++) {
-				if (global.board[initX, i] == 0) {
-					move_range[array_length_1d(move_range)] = [initX, i]
-				} else if (global.board[initX, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [initX, i]
+			for (var i = init_y + 1; i < 8; i++) {
+				if (global.board[init_x, i] == 0) {
+					move_range[array_length_1d(move_range)] = [init_x, i]
+				} else if (global.board[init_x, i] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [init_x, i]
 					break
 				} else {
 					break	
 				}
 			}
-			for (var i = initY - 1; i >= 0; i--) {
-				if (global.board[initX, i] == 0) {
-					move_range[array_length_1d(move_range)] = [initX, i]
-				} else if (global.board[initX, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [initX, i]
+			for (var i = init_y - 1; i >= 0; i--) {
+				if (global.board[init_x, i] == 0) {
+					move_range[array_length_1d(move_range)] = [init_x, i]
+				} else if (global.board[init_x, i] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [init_x, i]
 					break
 				} else {
 					break	
@@ -126,8 +126,8 @@ if (range_count == 0) {
 		// Bishop
 		case 3:
 			{
-				var i = initX + 1
-				var j = initY + 1
+				var i = init_x + 1
+				var j = init_y + 1
 				while (i < 8 and j < 8) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -142,8 +142,8 @@ if (range_count == 0) {
 				}
 			}
 			{
-				var i = initX + 1
-				var j = initY - 1
+				var i = init_x + 1
+				var j = init_y - 1
 				while (i < 8 and j >= 0) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -158,8 +158,8 @@ if (range_count == 0) {
 				}
 			}
 			{
-				var i = initX - 1
-				var j = initY + 1
+				var i = init_x - 1
+				var j = init_y + 1
 				while (i >= 0 and j < 8) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -174,8 +174,8 @@ if (range_count == 0) {
 				}
 			}
 			{
-				var i = initX - 1
-				var j = initY - 1
+				var i = init_x - 1
+				var j = init_y - 1
 				while (i >= 0 and j >= 0) {
 					if (global.board[i, j] == 0) { 
 						move_range[array_length_1d(move_range)] = [i, j]
@@ -193,55 +193,55 @@ if (range_count == 0) {
 		// Knight
 		case 4:
 			move_and_capture_range = [
-			[initX + 2, initY + 1],
-			[initX + 2, initY - 1],
-			[initX - 2, initY + 1],
-			[initX - 2, initY - 1],
-			[initX + 1, initY + 2],
-			[initX + 1, initY - 2],
-			[initX - 1, initY + 2],
-			[initX - 1, initY - 2],
+			[init_x + 2, init_y + 1],
+			[init_x + 2, init_y - 1],
+			[init_x - 2, init_y + 1],
+			[init_x - 2, init_y - 1],
+			[init_x + 1, init_y + 2],
+			[init_x + 1, init_y - 2],
+			[init_x - 1, init_y + 2],
+			[init_x - 1, init_y - 2],
 			]
 			move_range = move_and_capture_range
 			capture_range = move_and_capture_range
 			break
 		//Rook
 		case 5:
-			for (var i = initX + 1; i < 8; i++) {
-				if (global.board[i, initY] == 0) {
-					move_range[array_length_1d(move_range)] = [i, initY]
-				} else if (global.board[i, initY] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, initY]
+			for (var i = init_x + 1; i < 8; i++) {
+				if (global.board[i, init_y] == 0) {
+					move_range[array_length_1d(move_range)] = [i, init_y]
+				} else if (global.board[i, init_y] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [i, init_y]
 					break
 				} else {
 					break	
 				}
 			}
-			for (var i = initX - 1; i >= 0; i--) {
-				if (global.board[i, initY] == 0) {
-					move_range[array_length_1d(move_range)] = [i, initY]
-				} else if (global.board[i, initY] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, initY]
+			for (var i = init_x - 1; i >= 0; i--) {
+				if (global.board[i, init_y] == 0) {
+					move_range[array_length_1d(move_range)] = [i, init_y]
+				} else if (global.board[i, init_y] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [i, init_y]
 					break
 				} else {
 					break	
 				}
 			}
-			for (var i = initY + 1; i < 8; i++) {
-				if (global.board[initX, i] == 0) {
-					move_range[array_length_1d(move_range)] = [initX, i]
-				} else if (global.board[initX, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [initX, i]
+			for (var i = init_y + 1; i < 8; i++) {
+				if (global.board[init_x, i] == 0) {
+					move_range[array_length_1d(move_range)] = [init_x, i]
+				} else if (global.board[init_x, i] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [init_x, i]
 					break
 				} else {
 					break	
 				}
 			}
-			for (var i = initY - 1; i >= 0; i--) {
-				if (global.board[initX, i] == 0) {
-					move_range[array_length_1d(move_range)] = [initX, i]
-				} else if (global.board[initX, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [initX, i]
+			for (var i = init_y - 1; i >= 0; i--) {
+				if (global.board[init_x, i] == 0) {
+					move_range[array_length_1d(move_range)] = [init_x, i]
+				} else if (global.board[init_x, i] * pieceId <= 0) {
+					capture_range[array_length_1d(capture_range)] = [init_x, i]
 					break
 				} else {
 					break	
@@ -256,11 +256,11 @@ if (range_count == 0) {
 					i = 2	
 				}
 				while (i > 0) {
-					move_range[array_length_1d(move_range)] = [initX, initY - i * sign(pieceId)]
+					move_range[array_length_1d(move_range)] = [init_x, init_y - i * sign(pieceId)]
 					i -= 1
 				}
-				capture_range[array_length_1d(capture_range)] = [initX + 1, initY - sign(pieceId)]
-				capture_range[array_length_1d(capture_range)] = [initX - 1, initY - sign(pieceId)]
+				capture_range[array_length_1d(capture_range)] = [init_x + 1, init_y - sign(pieceId)]
+				capture_range[array_length_1d(capture_range)] = [init_x - 1, init_y - sign(pieceId)]
 			}
 		default:
 			break
@@ -270,7 +270,7 @@ if (range_count == 0) {
 // Move piece
 if (mouse_check_button_pressed(mb_left) and position_meeting(mouse_x, mouse_y, self) and obj_controller.turn * pieceId > 0){
 	if (!instance_exists(obj_chessPiecesSelected)){
-		selected = instance_create_layer(floor(x/global.squareWidth)*global.squareWidth, floor(y/global.squareWidth)*global.squareWidth, "Selected", obj_chessPiecesSelected)
+		selected = instance_create_layer(floor(x/global.square_width)*global.square_width, floor(y/global.square_width)*global.square_width, "Selected", obj_chessPiecesSelected)
 		selected.sprite_index = sprite_index
 		selected.image_index = image_index
 		selected.move_number = move_number
