@@ -18,177 +18,21 @@ if (range_count == 0) {
 			break
 		// Queen
 		case 2:
-			{
-				var i = init_x + 1
-				var j = init_y + 1
-				while (i < 8 and j < 8) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i += 1
-						j += 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
-			{
-				var i = init_x + 1
-				var j = init_y - 1
-				while (i < 8 and j >= 0) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i += 1
-						j -= 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
-			{
-				var i = init_x - 1
-				var j = init_y + 1
-				while (i >= 0 and j < 8) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i -= 1
-						j += 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
-			{
-				var i = init_x - 1
-				var j = init_y - 1
-				while (i >= 0 and j >= 0) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i -= 1
-						j -= 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
-			for (var i = init_x + 1; i < 8; i++) {
-				if (global.board[i, init_y] == 0) {
-					move_range[array_length_1d(move_range)] = [i, init_y]
-				} else if (global.board[i, init_y] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, init_y]
-					break
-				} else {
-					break	
-				}
-			}
-			for (var i = init_x - 1; i >= 0; i--) {
-				if (global.board[i, init_y] == 0) {
-					move_range[array_length_1d(move_range)] = [i, init_y]
-				} else if (global.board[i, init_y] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, init_y]
-					break
-				} else {
-					break	
-				}
-			}
-			for (var i = init_y + 1; i < 8; i++) {
-				if (global.board[init_x, i] == 0) {
-					move_range[array_length_1d(move_range)] = [init_x, i]
-				} else if (global.board[init_x, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [init_x, i]
-					break
-				} else {
-					break	
-				}
-			}
-			for (var i = init_y - 1; i >= 0; i--) {
-				if (global.board[init_x, i] == 0) {
-					move_range[array_length_1d(move_range)] = [init_x, i]
-				} else if (global.board[init_x, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [init_x, i]
-					break
-				} else {
-					break	
-				}
-			}
+			half_line_check(init_x + 1, init_y + 1, 1, 1)
+			half_line_check(init_x + 1, init_y - 1, 1, -1)
+			half_line_check(init_x - 1, init_y + 1, -1, 1)
+			half_line_check(init_x - 1, init_y - 1, -1, -1)
+			half_line_check(init_x + 1, init_y, 1, 0)
+			half_line_check(init_x - 1, init_y, -1, 0)
+			half_line_check(init_x, init_y + 1, 0, 1)
+			half_line_check(init_x, init_y - 1, 0, -1)
 			break
 		// Bishop
 		case 3:
-			{
-				var i = init_x + 1
-				var j = init_y + 1
-				while (i < 8 and j < 8) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i += 1
-						j += 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
-			{
-				var i = init_x + 1
-				var j = init_y - 1
-				while (i < 8 and j >= 0) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i += 1
-						j -= 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
-			{
-				var i = init_x - 1
-				var j = init_y + 1
-				while (i >= 0 and j < 8) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i -= 1
-						j += 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
-			{
-				var i = init_x - 1
-				var j = init_y - 1
-				while (i >= 0 and j >= 0) {
-					if (global.board[i, j] == 0) { 
-						move_range[array_length_1d(move_range)] = [i, j]
-						i -= 1
-						j -= 1
-					} else if (global.board[i, j] * pieceId < 0) {
-						capture_range[array_length_1d(capture_range)] = [i, j]
-						break
-					} else {
-						break	
-					}
-				}
-			}
+			half_line_check(init_x + 1, init_y + 1, 1, 1)
+			half_line_check(init_x + 1, init_y - 1, 1, -1)
+			half_line_check(init_x - 1, init_y + 1, -1, 1)
+			half_line_check(init_x - 1, init_y - 1, -1, -1)
 			break
 		// Knight
 		case 4:
@@ -207,46 +51,10 @@ if (range_count == 0) {
 			break
 		//Rook
 		case 5:
-			for (var i = init_x + 1; i < 8; i++) {
-				if (global.board[i, init_y] == 0) {
-					move_range[array_length_1d(move_range)] = [i, init_y]
-				} else if (global.board[i, init_y] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, init_y]
-					break
-				} else {
-					break	
-				}
-			}
-			for (var i = init_x - 1; i >= 0; i--) {
-				if (global.board[i, init_y] == 0) {
-					move_range[array_length_1d(move_range)] = [i, init_y]
-				} else if (global.board[i, init_y] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [i, init_y]
-					break
-				} else {
-					break	
-				}
-			}
-			for (var i = init_y + 1; i < 8; i++) {
-				if (global.board[init_x, i] == 0) {
-					move_range[array_length_1d(move_range)] = [init_x, i]
-				} else if (global.board[init_x, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [init_x, i]
-					break
-				} else {
-					break	
-				}
-			}
-			for (var i = init_y - 1; i >= 0; i--) {
-				if (global.board[init_x, i] == 0) {
-					move_range[array_length_1d(move_range)] = [init_x, i]
-				} else if (global.board[init_x, i] * pieceId <= 0) {
-					capture_range[array_length_1d(capture_range)] = [init_x, i]
-					break
-				} else {
-					break	
-				}
-			}
+			half_line_check(init_x + 1, init_y, 1, 0)
+			half_line_check(init_x - 1, init_y, -1, 0)
+			half_line_check(init_x, init_y + 1, 0, 1)
+			half_line_check(init_x, init_y - 1, 0, -1)
 			break
 		// Pawn
 		case 6:

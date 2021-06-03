@@ -10,14 +10,18 @@ if (mouse_check_button(mb_left) and 0 <= mouse_x and mouse_x < 1704 and 0 <= mou
 }
 // Move piece
 if (mouse_check_button_released(mb_left)) {
-	//Reset count
+	// Reset count
+	obj_controller.total_check = 0
 	with(obj_chessPieces) {
+		obj_controller.total_check += check
 		range_count = 0
 		move_range = []
 		capture_range = []
 		move_and_capture_range = []
 	}
+	// Check where the piece land
 	if (instance_position(mouse_x, mouse_y, obj_highlight) or instance_position(mouse_x, mouse_y, obj_selected)) {
+		// Land on highlight
 		if (instance_position(mouse_x, mouse_y, obj_highlight)) {
 			x = floor(mouse_x / global.square_width) * global.square_width
 			y = floor(mouse_y / global.square_width) * global.square_width
@@ -34,11 +38,13 @@ if (mouse_check_button_released(mb_left)) {
 			obj_controller.y_start = init_y
 			obj_controller.x_end = floor(x / global.square_width)
 			obj_controller.y_end = floor(y / global.square_width)
+		// Land on selected
 		} else if (instance_position(mouse_x, mouse_y, obj_selected)) {
 			x = init_x * global.square_width
 			y = init_y * global.square_width
 			click_number += 1
 		}
+		// Convert back into chessPieces
 		if (instance_position(x, y, obj_highlight) or click_number > 1) {
 			released = instance_create_layer(x, y, "Pieces", obj_chessPieces)
 			released.sprite_index = sprite_index
@@ -51,6 +57,7 @@ if (mouse_check_button_released(mb_left)) {
 			global.board[round(x / global.square_width), round(y / global.square_width)] = pieceId
 			instance_destroy()
 		}
+	// Does not land
 	} else {
 		released = instance_create_layer(init_x * global.square_width, init_y * global.square_width, "Pieces", obj_chessPieces)
 		released.sprite_index = sprite_index

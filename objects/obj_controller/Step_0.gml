@@ -34,5 +34,5 @@ if (instance_exists(obj_chessPiecesSelected)) {
 //Testing
 if (keyboard_check(ord("D"))) {
 	show_message(global.board)
-	show_message(check)
+	show_message(total_check)
 }
