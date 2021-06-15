@@ -7,6 +7,8 @@ x_end = -1
 y_end = -1
 turn = 1
 global.square_width = 213
+global.white_capture_range = []
+global.black_capture_range = []
 //Create board
 global.board = ds_grid_create(8, 8)
 for (var i = 0; i < 8; i++){

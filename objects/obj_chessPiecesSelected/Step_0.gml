@@ -44,7 +44,6 @@ if (mouse_check_button_released(mb_left)) {
 		}
 		// Convert back into chessPieces
 		if (instance_position(x, y, obj_highlight) or click_number > 1) {
-			global.total_check = 0
 			released = instance_create_layer(x, y, "Pieces", obj_chessPieces)
 			released.sprite_index = sprite_index
 			released.image_index = image_index

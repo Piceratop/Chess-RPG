@@ -73,6 +73,18 @@ if (range_count == 0) {
 		default:
 			break
 	}
+	switch(sign(pieceId)) {
+		case 1:
+			for (var i = 0; i < array_length_1d(capture_range); i++) {
+				global.white_capture_range[array_length_1d(global.white_capture_range)] = capture_range[i]
+			}		
+		case -1:
+			for (var i = 0; i < array_length_1d(capture_range); i++) {
+				global.black_capture_range[array_length_1d(global.black_capture_range)] = capture_range[i]
+			}
+		default:
+			break
+	}
 	range_count += 1
 }
 // Move piece
