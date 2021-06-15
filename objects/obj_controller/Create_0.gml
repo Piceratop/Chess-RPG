@@ -6,13 +6,12 @@ y_start = -1
 x_end = -1
 y_end = -1
 turn = 1
-total_check = 0
 global.square_width = 213
 //Create board
 global.board = ds_grid_create(8, 8)
-for (i = 0; i < 8; i++){
-	for (j = 0; j < 8; j++){
-		global.board[i,j] = 0	
+for (var i = 0; i < 8; i++){
+	for (var j = 0; j < 8; j++){
+		global.board[i, j] = 0	
 	}
 }
 //Create chess board
