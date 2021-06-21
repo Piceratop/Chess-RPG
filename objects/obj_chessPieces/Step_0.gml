@@ -14,7 +14,12 @@ if (range_count == 0) {
 			[init_x - 1, init_y - 1]
 			]
 			move_range = move_and_capture_range
-			capture_range = move_and_capture_range
+			for (var i = 0; i < array_length_1d(move_and_capture_range); i++) {
+				var j = move_and_capture_range[i]
+				if (j[0] >= 0 and j[0] < 8 and j[1] >= 0 and j[1] < 8 and global.board[j[0], j[1]] * pieceId < 0){
+					capture_range[array_length_1d(capture_range)] = move_and_capture_range[i]
+				}
+			}
 			break
 		// Queen
 		case 2:

@@ -33,15 +33,14 @@ if (instance_exists(obj_chessPiecesSelected)) {
 }
 //Testing
 if (keyboard_check(ord("D"))) {
-	//show_message(global.black_capture_range)
 	with (obj_chessPieces) {
-		if (sign(pieceId) == -1 ) {
-			show_message(capture_range)
-			for (var i = 0; i < array_length_1d(capture_range); i++) {
-				var j = capture_range[i]
-				instance_create_layer(j[0]*global.square_width, j[1]*global.square_width, "Highlight", obj_test)
-			}
+		for (var i = 0; i < array_length_1d(capture_range); i++) {
+			var j = capture_range[i]
+			test = instance_create_layer(j[0]*global.square_width, j[1]*global.square_width, "Highlight", obj_test)
+			test.image_index = floor((sign(pieceId) + 1) / 2)
 		}
-	}
-	
+		if (pieceId == -1) {
+			show_message(capture_range)	
+		}
+	}	
 }

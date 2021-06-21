@@ -17,6 +17,8 @@ if (mouse_check_button_released(mb_left)) {
 		capture_range = []
 		move_and_capture_range = []
 	}
+	global.white_capture_range = []
+	global.black_capture_range = []
 	// Check where the piece land
 	if (instance_position(mouse_x, mouse_y, obj_highlight) or instance_position(mouse_x, mouse_y, obj_selected)) {
 		// Land on highlight
